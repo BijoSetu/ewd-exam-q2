@@ -30,6 +30,7 @@ const SiteHeader: React.FC = () => {
   const menuOptions = [
     { label: "Home", path: "/" },
     { label: "Favorites", path: "/movies/favourites" },
+    // added new site header for trending page
     { label: "Trending", path: "/movies/trending" }
   ];
 

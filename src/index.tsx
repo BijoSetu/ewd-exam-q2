@@ -35,6 +35,7 @@ const App = () => {
             <Route path="/movies/:id" element={<MoviePage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="*" element={<Navigate to="/" />} />
+            {/* added new route for trending page  */}
              <Route path="/movies/trending" element={<TrendingPage/>} />
           </Routes>
         </MoviesContextProvider>
