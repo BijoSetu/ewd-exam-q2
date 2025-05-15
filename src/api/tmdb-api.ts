@@ -54,7 +54,7 @@ export const getMovies = () => {
 
   export const getMovieReviews = (id: string | number) => {
     return fetch(
-      `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${import.meta.env.VITE_TMDB_KEY}`
+      `https://api.themoviedb.org/3/movie/${id}/reviews?api_key="${import.meta.env.VITE_TMDB_KEY}`
     )
       .then((res) => res.json())
       .then((json) => {
@@ -62,3 +62,18 @@ export const getMovies = () => {
         return json.results;
       });
   };
+
+// new api for trending movies
+  export const getTrendingMovies = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${import.meta.env.VITE_TMDB_KEY}&language=en-US`
+    ).then((response) => {
+      if (!response.ok)
+        throw new Error(`Unable to fetch trending movies. Response status: ${response.status}`);
+      return response.json();
+    })
+      .catch((error) => {
+        throw error
+      });
+  }
+ 
